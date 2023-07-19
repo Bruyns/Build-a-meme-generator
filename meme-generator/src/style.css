@@ -59,6 +59,13 @@ margin-right: auto;
     text-indent: 5px;
 }
 
+.form--input {
+    font-family: "Karla", sans-serif;
+    border-radius: 5px;
+    border: 1px solid #D5D4D8;
+    text-indent: 5px;
+}
+
 .form--button {
     grid-column: 1 / -1;
     font-family: "Karla", sans-serif;
@@ -67,4 +74,8 @@ margin-right: auto;
     color: white;
     border: none;
     cursor: pointer;
+}
+
+.meme--image {
+    max-width: 100%;
 }
