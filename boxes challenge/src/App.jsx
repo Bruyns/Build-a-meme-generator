@@ -10,9 +10,8 @@ export default function App(props) {
     */
 // in style the first set of curly bois are to enter into javascipt within react and the 2nd set of curly boys
 // sets the acual JS style method
-    props.darkMode( boxes ? "#222222" : "#cccccc")
     const styles = {
-      backgroundColor: {darkMode},
+      backgroundColor: props.darkMode ? "#222222" : "#cccccc",
     }
 
     const squareElements = squares.map(square => (
