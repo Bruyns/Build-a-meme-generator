@@ -325,7 +325,11 @@ export default {
             {
                 "id": "124055727",
                 "name": "Y'all Got Any More Of That",
+<<<<<<< HEAD
+                "url": "https://i.imgflip.com/21uy0f.jpg",
+=======
                 "url": "https://i.imgflip.com/1h7in3.jpg",
+>>>>>>> 35da0496a1217d1a64eccedadb056f8e3ad4dabb
                 "width": 600,
                 "height": 471,
                 "box_count": 2
@@ -357,7 +361,11 @@ export default {
             {
                 "id": "135678846",
                 "name": "Who Killed Hannibal",
+<<<<<<< HEAD
+                "url": "https://i.imgflip.com/28s2gu.jpg",
+=======
                 "url": "https://i.imgflip.com/1e7ql7.jpg",
+>>>>>>> 35da0496a1217d1a64eccedadb056f8e3ad4dabb
                 "width": 1280,
                 "height": 1440,
                 "box_count": 3
@@ -517,7 +525,11 @@ export default {
             {
                 "id": "29617627",
                 "name": "Look At Me",
+<<<<<<< HEAD
+                "url": "https://i.imgflip.com/hmt3v.jpg",
+=======
                 "url": "https://i.imgflip.com/2hgfw.jpg",
+>>>>>>> 35da0496a1217d1a64eccedadb056f8e3ad4dabb
                 "width": 300,
                 "height": 300,
                 "box_count": 2
@@ -653,7 +665,11 @@ export default {
             {
                 "id": "29562797",
                 "name": "I'm The Captain Now",
+<<<<<<< HEAD
+                "url": "https://i.imgflip.com/hlmst.jpg",
+=======
                 "url": "https://i.imgflip.com/odluv.jpg",
+>>>>>>> 35da0496a1217d1a64eccedadb056f8e3ad4dabb
                 "width": 478,
                 "height": 350,
                 "box_count": 2
