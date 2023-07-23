@@ -20,7 +20,7 @@ export default function Form() {
     */
    
    const [formData, setFormData] = React.useState(
-       {firstName: "", lastName: ""}
+       {firstName: "", lastName: "", emailAdress: "", associateForm: "", comments: ""}
        )
        console.log(formData)
        
@@ -34,19 +34,40 @@ export default function Form() {
         }
 
         return (
-            <form>
+            <form className="Form">
                 <input
                     type="text"
                     placeholder="First Name"
                     onChange={handleChange}
                     name="firstName"
+                    value={formData.firstName}
                 />
                 <input
                     type="text"
                     placeholder="Lastname Name"
                     onChange={handleChange}
                     name="lastName"
+                    value={formData.lastName}
                 />
+                                <input
+                    type="email"
+                    placeholder="Email adress"
+                    onChange={handleChange}
+                    name="emailAdress"
+                    value={formData.emailAdress}
+                />
+                                <input
+                    type="text"
+                    placeholder="Associate form"
+                    onChange={handleChange}
+                    name="associateForm"
+                    value={formData.associateForm}
+                />
+                <textarea 
+                value={formData.comments}
+                placeholder="Comments"
+                onChange={handleChange}
+                name={"comments"} />
             </form>
         )
 }
