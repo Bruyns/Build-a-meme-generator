@@ -20,15 +20,23 @@ export default function Form() {
     */
    
    const [formData, setFormData] = React.useState(
-       {firstName: "", lastName: "", emailAdress: "", associateForm: "", comments: ""}
+       {
+        firstName: "",
+        lastName: "", 
+        emailAdress: "", 
+        associateForm: "", 
+        comments: "",
+        isFriendly: true
+        }
        )
        console.log(formData)
        
         function handleChange(event) {
+            const {name, value} = event.target
             setFormData(prevFormData => {
                 return {
                     ...prevFormData,
-                    [event.target.name]: event.target.value
+                    [name]: value
                 }
             })
         }
@@ -64,10 +72,19 @@ export default function Form() {
                     value={formData.associateForm}
                 />
                 <textarea 
-                value={formData.comments}
-                placeholder="Comments"
-                onChange={handleChange}
-                name={"comments"} />
+                    value={formData.comments}
+                    placeholder="Comments"
+                    onChange={handleChange}
+                    name={"comments"} 
+                />
+                <input
+                    type="checkbox"
+                    id="isFriendly"
+                    checked={formData.isFriendly}
+                    onChange={handleChange}
+                />
+                <label htmlFor="isFriendly">Are you friendly?</label>
+                <br />
             </form>
         )
 }
