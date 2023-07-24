@@ -1,79 +1,59 @@
-import React from "react";
-
-import ReactDOM from "react-dom/client"
+import React from "react"
 import memesData from "../memesData"
 
-export default function Meme () {
-    function loadNewMeme(props) {
-        const memeArray = memesData.data.memes;
-        const randomMeme = Math.floor(Math.random() * memeArray.length)
-        const imageLink = memeArray[randomMeme].url;
-        console.log(url)    
-  }
-
-    return (
-        <main>
-            <div className="form">
-                
-)
-}
-
-export default function Meme () {
+export default function Meme() {
+    /**
+     * Challenge: 
+     * 1. Set up the text inputs to save to
+     *    the `topText` and `bottomText` state variables.
+     * 2. Replace the hard-coded text on the image with
+     *    the text being saved to state.
+     */
     
     const [meme, setMeme] = React.useState({
         topText: "",
         bottomText: "",
-        randomImage: "https://i.imgflip.com/1bij.jpg"
+        randomImage: "https://i.imgflip.com/1bij.jpg" 
     })
+    const [allMemeImages, setAllMemeImages] = React.useState(memesData)
+    
+    
+    function getMemeImage() {
+        const memesArray = allMemeImages.data.memes
+        const randomNumber = Math.floor(Math.random() * memesArray.length)
+        const url = memesArray[randomNumber].url
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            randomImage: url
+        }))
         
-        // const [memeImage, setMemeImage] = React.useState("")
-            const [allMemeImages, setAllMemeImages] = React.useState(memesData)
-
-            function getMemeImage() {
-                const memesArray = memesData.data.memes
-                const randomNumber = Math.floor(Math.random() * memesArray.length)
-                const url = memesArray[randomNumber].url
-                setMeme(prevMeme => ({
-                    ...prevMeme,
-                    randomImage: url
-                }))
-                // console.log(url)      
     }
-
+    
     return (
-        <div>
-            <form className="form">
+        <main>
+            <div className="form">
                 <input 
-                    className="form--left"
                     type="text"
-                    placeholder="Top text" 
+                    placeholder="Top text"
+                    className="form--input"
                 />
                 <input 
-                    className="form--right" 
-                    type="text" 
-                    placeholder="Bottom Text"
+                    type="text"
+                    placeholder="Bottom text"
+                    className="form--input"
                 />
                 <button 
                     className="form--button"
-                    onClick={loadNewMeme}
-                >
-                Get a new meme image 🖼
-                </button>
-                
-            </form>
-        </div>
-=======
                     onClick={getMemeImage}
                 >
-                Get a new meme image 🖼
+                    Get a new meme image 🖼
                 </button>
-                <img className="meme--image" src={memeImage} />
-            </form>
-        </div>
+            </div>
+            <div className="meme">
+                <img src={meme.randomImage} className="meme--image" />
+                <h2 className="meme--text top">One does not simply</h2>
+                <h2 className="meme--text bottom">Walk into Mordor</h2>
+            </div>
+        </main>
     )
 }
-
-/* temp text
-className="form--right" 
-className="form--left"
-*/ 
