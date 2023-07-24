@@ -10,13 +10,25 @@ export default function Meme() {
      *    the text being saved to state.
      */
     
-    const [meme, setMeme] = React.useState({
+    const [meme, setMeme] = React.useState(
+        {
         topText: "",
         bottomText: "",
         randomImage: "https://i.imgflip.com/1bij.jpg" 
-    })
+        }
+    )
+        console.log(meme)
+    function handleChange(event) {
+        const {name, value, type} = event.target
+        setMeme( prevMeme => {
+            return {
+                ...prevMeme,
+                [name]: type === "checkbox" ? checked : value
+            }
+        })
+    }
+
     const [allMemeImages, setAllMemeImages] = React.useState(memesData)
-    
     
     function getMemeImage() {
         const memesArray = allMemeImages.data.memes
@@ -36,11 +48,18 @@ export default function Meme() {
                     type="text"
                     placeholder="Top text"
                     className="form--input"
+                    onChange={handleChange}
+                    name="topText"
+                    value={meme.topText}
+
                 />
                 <input 
                     type="text"
                     placeholder="Bottom text"
                     className="form--input"
+                    onChange={handleChange}
+                    name="bottomText"
+                    value={meme.bottomText}
                 />
                 <button 
                     className="form--button"
@@ -51,8 +70,8 @@ export default function Meme() {
             </div>
             <div className="meme">
                 <img src={meme.randomImage} className="meme--image" />
-                <h2 className="meme--text top">One does not simply</h2>
-                <h2 className="meme--text bottom">Walk into Mordor</h2>
+                <h2 className="meme--text top">{meme.topText}</h2>
+                <h2 className="meme--text bottom">{meme.bottomText}</h2>
             </div>
         </main>
     )
