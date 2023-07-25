@@ -14,33 +14,43 @@ export default function Meme() {
         {
         topText: "",
         bottomText: "",
-        randomImage: "https://i.imgflip.com/1bij.jpg" 
+        randomImage: "http://i.imgflip.com/1bij.jpg" 
         }
     )
-        console.log(meme)
+
+    
+    const [allMemes, setAllMemes] = React.useState([])
+    
+    React.useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => setAllMemes(data.data.memes))
+    }, [])
+// the api callback function to fetch the memes array
+
+    function getMemeImage() {
+        const randomNumber = Math.floor(Math.random() * allMemes.length)
+        const url = allMemes[randomNumber].url
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            randomImage: url
+        }))
+        // the meme randomizer function, chooses a random meme up between 0 - length of array
+    }
+    
     function handleChange(event) {
         const {name, value, type} = event.target
         setMeme( prevMeme => {
             return {
                 ...prevMeme,
-                [name]: type === "checkbox" ? checked : value
+                [name]:  value
             }
+            // the props used to set the name, value and type of the top and bottom text to show
+            // each time text is inputted in the top or bottom text box
         })
     }
+    
 
-    const [allMemeImages, setAllMemeImages] = React.useState(memesData)
-    
-    function getMemeImage() {
-        const memesArray = allMemeImages.data.memes
-        const randomNumber = Math.floor(Math.random() * memesArray.length)
-        const url = memesArray[randomNumber].url
-        setMeme(prevMeme => ({
-            ...prevMeme,
-            randomImage: url
-        }))
-        
-    }
-    
     return (
         <main>
             <div className="form">
@@ -73,6 +83,7 @@ export default function Meme() {
                 <h2 className="meme--text top">{meme.topText}</h2>
                 <h2 className="meme--text bottom">{meme.bottomText}</h2>
             </div>
+            {/* the html used to be put in the dom by react */}
         </main>
     )
 }
